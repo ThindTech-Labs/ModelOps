@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="ThindTech Labs — a curated index of text, image generation, and vision models built for practical AI." />
+    <meta name="theme-color" content="#17100b" />
+    <title>ThindTech Labs — Model Index</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%2317100b'/%3E%3Cpath d='M17 42V22h5l10 12 10-12h5v20h-6V31l-9 10-9-10v11z' fill='%23ff9b54'/%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="noise" aria-hidden="true"></div>
+    <header class="site-header shell">
+      <a class="brand" href="#top" aria-label="ThindTech Labs home"><span class="brand-mark">T</span><span><strong>THINDTECH</strong><small>LABS / MODEL INDEX</small></span></a>
+      <nav class="top-nav" aria-label="Primary navigation"><a href="#models">Models</a><a href="#about">About</a><a class="nav-button" href="https://github.com/ThindTech-Labs" target="_blank" rel="noreferrer">GitHub <span>↗</span></a></nav>
+    </header>
+
+    <main id="top">
+      <section class="hero shell">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="pulse"></span> Independent AI research studio · 2026</p>
+          <h1>Models with<br /><em>a point of view.</em></h1>
+          <p class="hero-intro">ThindTech Labs makes focused, approachable AI models for people who want to build, test, and ship without losing sight of how the system actually works.</p>
+          <p class="hero-detail">Explore our growing collection of text, image generation, and vision releases. Every model has a clear job, a compact footprint, and a home on Hugging Face where you can inspect the files and start experimenting.</p>
+          <div class="hero-actions"><a class="button button-primary" href="#models">Explore the index <span>↓</span></a><a class="text-link" href="https://github.com/ThindTech-Labs" target="_blank" rel="noreferrer">Visit the lab on GitHub <span>↗</span></a></div>
+        </div>
+        <div class="hero-orbit" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="orbit orbit-three"></div><div class="core"><span>TT</span><small>LABS</small></div><span class="orbit-label label-one">IMAGE GEN</span><span class="orbit-label label-two">VISION</span><span class="orbit-label label-three">TEXT</span><span class="orbit-dot dot-one"></span><span class="orbit-dot dot-two"></span><span class="orbit-dot dot-three"></span></div>
+      </section>
+
+      <section class="ticker" aria-label="Lab principles"><div class="ticker-track"><span>OPEN WEIGHTS</span><b>✳</b><span>LOW LATENCY</span><b>✳</b><span>USEFUL DEFAULTS</span><b>✳</b><span>BUILT IN PUBLIC</span><b>✳</b><span>OPEN WEIGHTS</span><b>✳</b><span>LOW LATENCY</span><b>✳</b></div></section>
+
+      <section class="models-section shell" id="models">
+        <div class="section-heading"><div><p class="eyebrow">01 / The index</p><h2>Find the right<br /><span>starting point.</span></h2></div><div class="section-copy"><p>Not every problem needs the biggest model in the room. This index groups our releases by the kind of work they are built to do, so you can compare the shape of a model before you download it.</p><p>Choose a category, search by task, and open the Hugging Face repository for weights, usage notes, files, and release details.</p></div></div>
+        <div class="controls" role="toolbar" aria-label="Filter models"><label class="search-wrap"><span>⌕</span><input id="search" type="search" placeholder="Search models, tasks, tags..." aria-label="Search models" /></label><div class="filter-group" role="group" aria-label="Filter by category"><button class="filter active" data-filter="all">All <span>06</span></button><button class="filter" data-filter="image-gen">Image Gen <span>02</span></button><button class="filter" data-filter="text">Text <span>02</span></button><button class="filter" data-filter="vision">Vision <span>02</span></button></div></div>
+        <div class="model-grid" id="model-grid" aria-live="polite"></div><p class="empty-state" id="empty-state" hidden>No models match that search. Try a different task, tag, or category.</p>
+      </section>
+
+      <section class="manifesto shell" id="about"><div class="manifesto-label"><span class="eyebrow">02 / The lab note</span><span class="manifesto-line"></span><span class="mono">THINDTECH LABS / 01</span></div><div class="manifesto-copy"><h2>AI should feel<br /><em>legible.</em></h2><p>We are interested in the useful middle: models that are capable enough to matter, small enough to run, and documented well enough to invite a second look.</p><p>That means publishing more than a name. We share the task, the trade-offs, and the repository so builders can make an informed choice before a model becomes part of a product.</p><a class="text-link" href="https://github.com/ThindTech-Labs" target="_blank" rel="noreferrer">Read the work in public <span>↗</span></a></div><div class="manifesto-stats"><div><strong>06</strong><span>released<br />models</span></div><div><strong>03</strong><span>active<br />directions</span></div><div><strong>01</strong><span>open<br />lab</span></div></div></section>
+    </main>
+
+    <footer class="site-footer shell"><div class="footer-brand"><span class="brand-mark">T</span><span>THINDTECH LABS</span></div><p>Made with curiosity, restraint, and a good GPU.</p><div class="footer-links"><a href="https://github.com/ThindTech-Labs" target="_blank" rel="noreferrer">GitHub ↗</a><a href="#top">Back to top ↑</a></div></footer>
+    <script src="script.js"></script>
+  </body>
+</html>
