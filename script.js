@@ -1,3 +1,6 @@
+// ThindTech Labs — model index + dataset showcase
+
+/* ---------------- Model catalog ---------------- */
 const models = [
   { name: 'Tikka-3B', category: 'text', icon: '◌', version: 'v1.2 · 3B params', description: 'A compact instruction model for everyday reasoning, extraction, multilingual chat, and local assistant workflows.', tags: ['Text', 'Chat', 'GGUF'], link: 'https://huggingface.co/ThindTechLabs/tikka-3b', featured: true },
   { name: 'Rangrez-XL', category: 'image-gen', icon: '✦', version: 'v0.8 · image model', description: 'An image generation model for bold visual studies, concept work, and fast creative iteration from a short prompt.', tags: ['Image Gen', 'Diffusion'], link: 'https://huggingface.co/ThindTechLabs/rangrez-xl' },
@@ -42,3 +45,59 @@ filterButtons.forEach(button => button.addEventListener('click', () => {
 }));
 search.addEventListener('input', render);
 render();
+
+/* ---------------- Dataset interactions ---------------- */
+
+// Reveal the dataset card as it scrolls into view
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// Animate the task-mix bars when they enter the viewport
+const barsWrap = document.querySelector('#task-bars');
+if (barsWrap) {
+  const barsObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      barsWrap.querySelectorAll('.bar-row').forEach((row, i) => {
+        const share = parseFloat(row.dataset.share);
+        if (share >= 50) row.classList.add('leader');
+        const fill = row.querySelector('.bar-fill');
+        setTimeout(() => { fill.style.width = Math.max(share, 1.4) + '%'; }, 120 + i * 90);
+      });
+      barsObserver.unobserve(barsWrap);
+    });
+  }, { threshold: 0.3 });
+  barsObserver.observe(barsWrap);
+}
+
+// Copy button for the usage snippet
+const copyButton = document.querySelector('#copy-usage');
+if (copyButton) {
+  copyButton.addEventListener('click', async () => {
+    const snippet = document.querySelector('#usage-snippet').innerText;
+    try {
+      await navigator.clipboard.writeText(snippet);
+    } catch {
+      const range = document.createRange();
+      range.selectNodeContents(document.querySelector('#usage-snippet'));
+      const selection = window.getSelection();
+      selection.removeAllRanges();
+      selection.addRange(range);
+      document.execCommand('copy');
+      selection.removeAllRanges();
+    }
+    copyButton.textContent = 'Copied ✓';
+    copyButton.classList.add('copied');
+    setTimeout(() => {
+      copyButton.textContent = 'Copy';
+      copyButton.classList.remove('copied');
+    }, 1800);
+  });
+}
